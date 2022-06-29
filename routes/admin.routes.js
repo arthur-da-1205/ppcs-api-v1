@@ -2,9 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const adminController = require("../controllers/admin");
-
-router.get("/", adminController.getIndex);
+const adminController = require("../controllers/admin.controller");
 
 router.get("/posts", adminController.getAllPost);
 
@@ -16,8 +14,8 @@ router.post("/add-post", adminController.addPost);
 
 router.get("/edit-post/:postId", adminController.getEditPost);
 
-router.post("/edit-post", adminController.postEdit);
+router.put("/edit-post", adminController.postEdit);
 
-router.post("/delete-post", adminController.deletePost);
+router.delete("/delete-post/:postId", adminController.deletePost);
 
 module.exports = router;
